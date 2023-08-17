@@ -5,6 +5,10 @@ const port = process.env.PORT || 4000;
 
 app.use(bodyParser.json());
 
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
 let rooms = [ {
   id:1,
   seats:10,
@@ -67,7 +71,7 @@ app.post('/rooms', (req, res) =>{
   res.status(201).json(newRoom);
 });
 
-//Bookong API
+//Booking API
 app.get('/bookings', (req, res) => {
   res.json(bookings);
 });
@@ -115,7 +119,5 @@ app.post('/api/bookings', (req, res) => {
   res.status(201).json(newBooking);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+
 
